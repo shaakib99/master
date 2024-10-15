@@ -1,0 +1,4 @@
+- name: Reload NGINX
+  tasks:
+    - name: Reload NGINX
+      ansible.builtin.shell: "nginx -s reload"

@@ -1,0 +1,9 @@
+- name: Update NGINX upstream
+  tasks:
+  - name: Add new upstream
+    ansible.builtin.lineinfile:
+      path: /etc/nginx/conf.d/upstream.conf
+      insertafter: "^upstream.*$"
+      line: "{{new_host}}"
+      state: present
+    become: yes

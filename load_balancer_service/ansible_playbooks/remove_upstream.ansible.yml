@@ -1,0 +1,9 @@
+- name: Update NGINX upstream
+  tasks:
+  - name: remove NGINX upstream
+    ansible.builtin.lineinfile: 
+      path: /etc/nginx/conf.d/upstream.conf
+      regexp: '\s*server\s+{{ target }};\s*$'
+      insertafter: '^upstream.*$'
+      state: absent
+    become: yes
